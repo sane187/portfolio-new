@@ -20,7 +20,7 @@ Full-Stack Developer | Digital Solutions Co. | Mumbai, IN | Jun 2018 - Dec 2020
 - Improved application performance by 20% by optimizing API calls and implementing code-splitting.
 
 Education
-Bachelor of Engineering in Computer Science | University of Pune | 2014 - 2018
+Bachelor of Computer Applications | Ludiana Group of COlleges | 2018 - 2021
 - Graduated with First Class Honors.
 - Final Year Project: "Real-time Chat Application using WebSockets".
 

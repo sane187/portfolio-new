@@ -16,7 +16,7 @@ interface ProjectsProps {
 
 const Projects: FC<ProjectsProps> = ({ projects }) => {
   return (
-    <section id="projects">
+    <section id="projects" className="max-w-6xl mx-auto">
       <div className="max-w-xl mx-auto text-center">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-primary">
           My Projects

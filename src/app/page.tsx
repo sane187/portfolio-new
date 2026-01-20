@@ -18,7 +18,8 @@ type ParseCvOutput = {
 
 const mockParsedCv: ParseCvOutput = {
   education: [
-    'Bachelor of Engineering in Computer Science | University of Pune | 2014 - 2018',
+    'Master of Computer Application | Monad University  | 2021 - 2023',
+    'Bachelor of Computer Applications | Ludiana Group  | 2018 - 2021',
   ],
   workExperience: [
     `Lead Software Engineer | Tech Innovators Inc. | Pune, IN | Jan 2021 - Present
@@ -55,7 +56,7 @@ export default async function Home() {
   }));
 
   const categorizedProjectsList = projectsData.map((project) => {
-      return { ...project, categories: [], tags: project.title.split(' ').filter(t => t.length > 2) };
+      return { ...project, categories: [], tags: project.tags.split('_') };
     }
   );
 
