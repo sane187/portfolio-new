@@ -38,7 +38,7 @@ const mockParsedCv: ParseCvOutput = {
     'Node.js', 'Express.js', 'Flask',
     'PostgreSQL', 'MongoDB', 'Firebase Firestore',
     'Google Cloud Platform (GCP)', 'Firebase', 'Docker', 'Kubernetes', 'CI/CD', 'Vercel',
-    'Genkit', 'Google AI Platform', 'TensorFlow'
+  
   ],
   otherDetails: [
     "A highly motivated Full-Stack Developer with 5+ years of experience in designing, developing, and deploying modern web applications. Proficient in JavaScript, React, Node.js, and cloud technologies like Firebase and Google Cloud. Passionate about leveraging AI/ML to build intelligent and user-friendly solutions.",

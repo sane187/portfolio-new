@@ -25,6 +25,7 @@ export default function RootLayout({
           "min-h-screen bg-background font-body antialiased"
         )}
       >
+        <div className="fixed inset-0 -z-10 h-full w-full bg-background bg-grid-white/[0.05] bg-[length:30px_30px]" aria-hidden="true" />
         {children}
         <Toaster />
       </body>

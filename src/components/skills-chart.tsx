@@ -20,7 +20,6 @@ const SkillsChart: FC<SkillsChartProps> = ({ skills }) => {
       'Languages': ['JavaScript', 'TypeScript', 'Python', 'HTML', 'CSS/Sass'],
       'Frameworks & Libraries': ['React', 'Next.js', 'Redux', 'Tailwind CSS', 'Chart.js', 'Node.js', 'Express.js', 'Flask'],
       'Tools & Platforms': ['PostgreSQL', 'MongoDB', 'Firebase', 'Firebase Firestore', 'Google Cloud Platform (GCP)', 'Docker', 'Kubernetes', 'CI/CD', 'Vercel'],
-      'AI/ML': ['Genkit', 'Google AI Platform', 'TensorFlow'],
     };
 
     for (const category in categories) {
@@ -63,7 +62,7 @@ const SkillsChart: FC<SkillsChartProps> = ({ skills }) => {
         {sortedCategorizedSkills.map(([category, skills]) => {
           if (skills.length === 0) return null;
           return (
-            <Card key={category} className="bg-card border-border/60 flex flex-col hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300">
+            <Card key={category} className="flex flex-col bg-accent/5 backdrop-blur-md border border-accent/10 rounded-2xl shadow-lg hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-xl">{category}</CardTitle>
               </CardHeader>

@@ -30,7 +30,7 @@ Skills
 - Backend: Node.js, Express.js, Flask
 - Databases: PostgreSQL, MongoDB, Firebase Firestore
 - Cloud & DevOps: Google Cloud Platform (GCP), Firebase, Docker, Kubernetes, CI/CD, Vercel
-- AI/ML: Genkit, Google AI Platform, TensorFlow
+
 
 Other Details
 I'm a lifelong learner, always excited to pick up new technologies and tackle challenging problems. When I'm not coding, I enjoy exploring new hiking trails and contributing to open-source projects.

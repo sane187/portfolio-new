@@ -5,10 +5,6 @@ import type { FC } from 'react';
 const Hero: FC = () => {
   return (
     <section className="relative h-[calc(100vh-56px)] flex items-center justify-center text-center">
-       <div
-        className="absolute inset-0 bg-grid-white/[0.05] [mask-image:linear-gradient(to_bottom,white_5%,transparent_50%)]"
-        aria-hidden="true"
-      ></div>
       <div className="relative z-10 px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
           <span className="block animate-load-in-bounce">Arpit Joshi</span>
