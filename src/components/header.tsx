@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
@@ -17,63 +17,61 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 hidden md:flex">
-          <a href="#" className="mr-6 flex items-center space-x-2">
-            <span className="font-bold">Arpit Joshi</span>
-          </a>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="transition-colors hover:text-primary/80 text-foreground/60"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </div>
+      <div className="container relative flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <a href="#" className="flex items-center space-x-2 z-10">
+          <span className="font-bold text-lg">Arpit Joshi</span>
+        </a>
 
-        <div className="md:hidden">
-          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Open Menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left">
-              <div className="flex flex-col space-y-6 p-6">
-                <a href="#" className="font-bold" onClick={() => setIsMobileMenuOpen(false)}>
-                  Arpit Joshi
-                </a>
-                <nav className="flex flex-col space-y-4">
-                  {navItems.map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      className="text-lg transition-colors hover:text-primary"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                </nav>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
+        <nav className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-8 text-sm font-medium">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="group relative text-foreground/70 transition-colors duration-300 hover:text-primary"
+            >
+              <span>{item.label}</span>
+              <span className="absolute bottom-[-4px] left-0 h-0.5 w-full origin-center scale-x-0 transform bg-primary transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
+            </a>
+          ))}
+        </nav>
+        
+        <div className="flex items-center gap-2 z-10">
+          <Button asChild className="hidden md:flex">
+            <a href="mailto:arpit.joshi.dev@example.com">Contact Me</a>
+          </Button>
 
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <div className="w-full flex-1 md:w-auto md:flex-none">
-            {/* Can add search or other elements here if needed */}
+          <div className="md:hidden">
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open Menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left">
+                <div className="flex flex-col space-y-6 p-6">
+                  <a href="#" className="font-bold text-lg" onClick={() => setIsMobileMenuOpen(false)}>
+                    Arpit Joshi
+                  </a>
+                  <nav className="flex flex-col space-y-4">
+                    {navItems.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        className="text-lg transition-colors hover:text-primary"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </nav>
+                   <Button asChild>
+                    <a href="mailto:arpit.joshi.dev@example.com">Contact Me</a>
+                  </Button>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
-          <nav className="hidden md:flex items-center">
-            <Button asChild>
-              <a href="mailto:arpit.joshi.dev@example.com">Contact Me</a>
-            </Button>
-          </nav>
         </div>
       </div>
     </header>
