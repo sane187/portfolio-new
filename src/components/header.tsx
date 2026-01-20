@@ -27,10 +27,10 @@ export default function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="group relative text-foreground/70 transition-colors duration-300 hover:text-primary"
+              className="group relative text-foreground/70 transition-colors duration-300 hover:text-white"
             >
               <span>{item.label}</span>
-              <span className="absolute bottom-[-4px] left-0 h-0.5 w-full origin-center scale-x-0 transform bg-primary transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
+              <span className="absolute bottom-[-4px] left-0 h-0.5 w-full origin-center scale-x-0 transform bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
             </a>
           ))}
         </nav>
