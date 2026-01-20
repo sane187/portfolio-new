@@ -46,7 +46,7 @@ export default async function Home() {
   try {
     parsedCv = await parseCv({ cvData });
   } catch (error) {
-    console.error("Error parsing CV, using fallback data. This is likely due to a missing GEMINI_API_KEY.", error);
+    console.error("Error parsing CV, using fallback data. This may be due to a missing or invalid API key.", error);
     parsedCv = mockParsedCv;
   }
 
