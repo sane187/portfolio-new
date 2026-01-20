@@ -11,8 +11,8 @@ const Hero: FC = () => {
       ></div>
       <div className="relative z-10 px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-          <span className="block">Arpit Joshi</span>
-          <span className="block text-primary animate-subtle-bounce">Frontend Developer</span>
+          <span className="block animate-load-in-bounce">Arpit Joshi</span>
+          <span className="block text-primary animate-load-in-bounce [animation-delay:200ms]">Frontend Developer</span>
         </h1>
         <p className="mt-4 max-w-md mx-auto text-lg text-muted-foreground sm:text-xl md:mt-5 md:max-w-3xl">
           Crafting modern, responsive, and intelligent web applications from concept to deployment.
