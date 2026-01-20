@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'grid-white/[0.05]': 'linear-gradient(90deg, hsla(0,0%,100%,.05) 1px, transparent 1px), linear-gradient(hsla(0,0%,100%,.05) 1px, transparent 1px)',
+      },
       fontFamily: {
         body: ['Inter', 'sans-serif'],
         headline: ['Inter', 'sans-serif'],
@@ -92,6 +95,9 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+      backgroundSize: {
+        'grid-white/[0.05]': '30px 30px',
       },
     },
   },
