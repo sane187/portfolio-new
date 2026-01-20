@@ -1,9 +1,13 @@
 'use client';
 
 import type { FC } from 'react';
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
+import { Bar, BarChart, XAxis, YAxis, Tooltip } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ChartTooltipContent } from '@/components/ui/chart';
+import {
+  ChartContainer,
+  ChartTooltipContent,
+  type ChartConfig,
+} from '@/components/ui/chart';
 
 interface Skill {
   name: string;
@@ -13,6 +17,13 @@ interface Skill {
 interface SkillsChartProps {
   skills: Skill[];
 }
+
+const chartConfig = {
+  proficiency: {
+    label: 'Proficiency',
+    color: 'hsl(var(--primary))',
+  },
+} satisfies ChartConfig;
 
 const SkillsChart: FC<SkillsChartProps> = ({ skills }) => {
   return (
@@ -28,26 +39,33 @@ const SkillsChart: FC<SkillsChartProps> = ({ skills }) => {
           <CardTitle>Technical Proficiency</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="h-[400px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={skills} layout="vertical" margin={{ left: 20, right: 20 }}>
-                <XAxis type="number" hide />
-                <YAxis
-                  dataKey="name"
-                  type="category"
-                  axisLine={false}
-                  tickLine={false}
-                  tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }}
-                  width={120}
-                />
-                <Tooltip
-                  cursor={{ fill: 'hsl(var(--muted) / 0.5)' }}
-                  content={<ChartTooltipContent indicator="dot" />}
-                />
-                <Bar dataKey="proficiency" radius={[0, 4, 4, 0]} fill="hsl(var(--primary))" />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
+          <ChartContainer config={chartConfig} className="h-[400px] w-full">
+            <BarChart
+              data={skills}
+              layout="vertical"
+              margin={{ left: 20, right: 20 }}
+              accessibilityLayer
+            >
+              <XAxis type="number" hide />
+              <YAxis
+                dataKey="name"
+                type="category"
+                axisLine={false}
+                tickLine={false}
+                tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }}
+                width={120}
+              />
+              <Tooltip
+                cursor={{ fill: 'hsl(var(--muted) / 0.5)' }}
+                content={<ChartTooltipContent indicator="dot" />}
+              />
+              <Bar
+                dataKey="proficiency"
+                radius={[0, 4, 4, 0]}
+                fill="var(--color-proficiency)"
+              />
+            </BarChart>
+          </ChartContainer>
         </CardContent>
       </Card>
     </section>
