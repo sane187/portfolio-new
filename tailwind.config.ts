@@ -94,11 +94,11 @@ export default {
         'load-in-bounce': {
           '0%': {
             opacity: '0',
-            transform: 'translateY(-50%)',
+            transform: 'translateY(-20px)',
           },
-          '50%': {
+          '60%': {
             opacity: '1',
-            transform: 'translateY(5%)',
+            transform: 'translateY(5px)',
           },
           '100%': {
             opacity: '1',
@@ -109,7 +109,7 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'load-in-bounce': 'load-in-bounce 1s ease-out forwards',
+        'load-in-bounce': 'load-in-bounce 0.7s ease-out forwards',
       },
       backgroundSize: {
         'grid-white/[0.05]': '30px 30px',
