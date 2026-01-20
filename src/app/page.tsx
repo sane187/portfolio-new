@@ -1,5 +1,3 @@
-import { parseCv, type ParseCvOutput } from "@/ai/flows/parse-cv";
-import { categorizeProjects } from "@/ai/flows/categorize-projects";
 import { cvData } from "@/lib/cv-data";
 import { projectsData } from "@/lib/projects-data";
 import Header from "@/components/header";
@@ -10,6 +8,13 @@ import Projects from "@/components/projects";
 import Experience from "@/components/experience";
 import Education from "@/components/education";
 import Footer from "@/components/footer";
+
+type ParseCvOutput = {
+  education: string[];
+  workExperience: string[];
+  skills: string[];
+  otherDetails: string[];
+};
 
 const mockParsedCv: ParseCvOutput = {
   education: [
@@ -42,31 +47,16 @@ const mockParsedCv: ParseCvOutput = {
 };
 
 export default async function Home() {
-  let parsedCv: ParseCvOutput;
-  try {
-    parsedCv = await parseCv({ cvData });
-  } catch (error) {
-    console.error("Error parsing CV, using fallback data. This may be due to a missing or invalid API key.", error);
-    parsedCv = mockParsedCv;
-  }
+  const parsedCv: ParseCvOutput = mockParsedCv;
 
   const skillsWithProficiency = parsedCv.skills.map((skill) => ({
     name: skill,
     proficiency: Math.floor(Math.random() * 16) + 80, // 80-95%
   }));
 
-  const categorizedProjectsList = await Promise.all(
-    projectsData.map(async (project) => {
-      try {
-        const aiData = await categorizeProjects({
-          projectDescription: project.description,
-        });
-        return { ...project, ...aiData };
-      } catch (error) {
-        console.error("Error categorizing project:", project.title, error);
-        return { ...project, categories: [], tags: project.title.split(' ').filter(t => t.length > 2) };
-      }
-    })
+  const categorizedProjectsList = projectsData.map((project) => {
+      return { ...project, categories: [], tags: project.title.split(' ').filter(t => t.length > 2) };
+    }
   );
 
   return (
