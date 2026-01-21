@@ -7,7 +7,7 @@ interface ExperienceProps {
 
 const Experience: FC<ExperienceProps> = ({ experiences }) => {
   return (
-    <section id="experience" className="max-w-4xl mx-auto">
+    <section id="experience" className="max-w-4xl mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '1.5s' }}>
       <h2 className="text-3xl font-bold tracking-tight text-center sm:text-4xl text-primary">
         Work Experience
       </h2>

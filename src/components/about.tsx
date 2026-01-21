@@ -6,7 +6,7 @@ interface AboutProps {
 
 const About: FC<AboutProps> = ({ aboutText }) => {
   return (
-    <section id="about" className="max-w-3xl mx-auto">
+    <section id="about" className="max-w-3xl mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
       <h2 className="text-3xl font-bold tracking-tight text-center sm:text-4xl text-primary">
         About Me
       </h2>

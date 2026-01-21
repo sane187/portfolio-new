@@ -94,11 +94,21 @@ export default {
         'load-in-bounce': {
           '0%': {
             opacity: '0',
-            transform: 'translateY(-20px)',
+            transform: 'translateY(-10px)',
           },
           '60%': {
             opacity: '1',
-            transform: 'translateY(5px)',
+            transform: 'translateY(2px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+        },
+        'fade-in-up': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(20px)',
           },
           '100%': {
             opacity: '1',
@@ -110,6 +120,7 @@ export default {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'load-in-bounce': 'load-in-bounce 0.7s ease-out forwards',
+        'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
       },
       backgroundSize: {
         'grid-white/[0.05]': '30px 30px',

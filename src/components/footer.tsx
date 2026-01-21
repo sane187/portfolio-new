@@ -3,7 +3,7 @@ import type { FC } from 'react';
 
 const Footer: FC = () => {
   return (
-    <footer className="bg-card/50 border-t border-border/60">
+    <footer className="bg-card/50 border-t border-border/60 opacity-0 animate-fade-in-up" style={{ animationDelay: '1.9s' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-center py-6 gap-4">
           <p className="text-sm text-muted-foreground">

@@ -51,7 +51,7 @@ const SkillsChart: FC<SkillsChartProps> = ({ skills }) => {
   });
 
   return (
-    <section id="skills" className="max-w-6xl mx-auto">
+    <section id="skills" className="max-w-6xl mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '1.1s' }}>
       <h2 className="text-3xl font-bold tracking-tight text-center sm:text-4xl text-primary">
         Skills & Technologies
       </h2>

@@ -8,7 +8,7 @@ interface EducationProps {
 
 const Education: FC<EducationProps> = ({ educations }) => {
   return (
-    <section id="education" className="max-w-4xl mx-auto">
+    <section id="education" className="max-w-4xl mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '1.7s' }}>
       <h2 className="text-3xl font-bold tracking-tight text-center sm:text-4xl text-primary">
         Education
       </h2>
