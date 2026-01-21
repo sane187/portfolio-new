@@ -6,79 +6,49 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const Hero: FC = () => {
-  const name = "Arpit Joshi";
-  const title = "Frontend Developer";
-
-  const sentence = {
-    hidden: { opacity: 1 },
+  const container = {
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08,
+        staggerChildren: 0.2,
       },
     },
   };
 
-  const letter = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-  };
-
-  const subtitleContainer = {
+  const item = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        delay: (name.length + title.length) * 0.08 + 0.5,
-        duration: 0.5,
+        duration: 0.6,
+        ease: [0.25, 0.1, 0.25, 1], // easeOut
       },
     },
   };
 
   return (
     <section className="relative h-[calc(100vh-56px)] flex items-center justify-center text-center">
-      <div className="relative z-10 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-          <motion.span
-            className="block"
-            variants={sentence}
-            initial="hidden"
-            animate="visible"
-          >
-            {name.split("").map((char, index) => (
-              <motion.span key={char + "-" + index} variants={letter} className="inline-block">
-                {char === ' ' ? '\u00A0' : char}
-              </motion.span>
-            ))}
-          </motion.span>
-          <motion.span
-            className="block text-primary"
-            variants={sentence}
-            initial="hidden"
-            animate="visible"
-          >
-            {title.split("").map((char, index) => (
-              <motion.span key={char + "-" + index} variants={letter} className="inline-block">
-                {char === ' ' ? '\u00A0' : char}
-              </motion.span>
-            ))}
-          </motion.span>
-        </h1>
-
-        <motion.div
-          variants={subtitleContainer}
-          initial="hidden"
-          animate="visible"
+      <motion.div
+        className="relative z-10 px-4 sm:px-6 lg:px-8"
+        variants={container}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h1
+          variants={item}
+          className="text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl"
         >
+          <span className="block">
+            Arpit Joshi
+          </span>
+          <span className="block text-primary">
+            Frontend Developer
+          </span>
+        </motion.h1>
+
+        <motion.div variants={item}>
           <p className="mt-4 max-w-md mx-auto text-lg text-muted-foreground sm:text-xl md:mt-5 md:max-w-3xl">
             Crafting modern, responsive, and intelligent web applications from concept to deployment.
           </p>
@@ -94,7 +64,7 @@ const Hero: FC = () => {
             </Button>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };
