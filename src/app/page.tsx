@@ -42,7 +42,7 @@ const mockParsedCv: ParseCvOutput = {
   
   ],
   otherDetails: [
-    "A highly motivated Full-Stack Developer with 5+ years of experience in designing, developing, and deploying modern web applications. Proficient in JavaScript, React, Node.js, and cloud technologies like Firebase and Google Cloud. Passionate about leveraging AI/ML to build intelligent and user-friendly solutions.",
+    "Frontend Developer with nearly 4 years of experience building high-performance, scalable, and user-centric web applications using React.js and Next.js. Strong expertise in modern frontend architecture, performance optimization, and responsive UI development, with working knowledge of backend development using Node.js. Proven experience delivering production-grade applications used by 10,000+ active users.",
     "I'm a lifelong learner, always excited to pick up new technologies and tackle challenging problems. When I'm not coding, I enjoy exploring new hiking trails and contributing to open-source projects."
   ]
 };
