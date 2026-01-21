@@ -10,7 +10,6 @@ const navItems = [
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
   { href: '#experience', label: 'Experience' },
-  { href: '#education', label: 'Education' },
 ];
 
 export default function Header() {
