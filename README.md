@@ -25,7 +25,4 @@ Designed to showcase projects, skills, and experience with smooth animations and
 - Easy project and content updates
 - Optimized performance
 
----
-
-## 📁 Project Structure
 
