@@ -18,9 +18,8 @@ const SkillsChart: FC<SkillsChartProps> = ({ skills }) => {
 
   const getSkillCategory = (skillName: string): string => {
     const categories: Record<string, string[]> = {
-      'Languages': ['JavaScript', 'TypeScript', 'Python', 'HTML', 'CSS/Sass'],
-      'Frameworks & Libraries': ['React', 'Next.js', 'Redux', 'Tailwind CSS', 'Chart.js', 'Node.js', 'Express.js', 'Flask'],
-      'Tools & Platforms': ['PostgreSQL', 'MongoDB', 'Firebase', 'Firebase Firestore', 'Google Cloud Platform (GCP)', 'Docker', 'Kubernetes', 'CI/CD', 'Vercel'],
+      'Languages': ['JavaScript', 'TypeScript', 'Java', 'HTML', 'CSS/Sass'],
+      'Frameworks & Libraries': ['React', 'Next.js', 'Redux', 'Tailwind CSS', 'Apex Charts', 'Material UI', 'Node.js', 'Express.js'],
     };
 
     for (const category in categories) {
@@ -40,7 +39,7 @@ const SkillsChart: FC<SkillsChartProps> = ({ skills }) => {
     return acc;
   }, {} as Record<string, Skill[]>);
 
-  const categoryOrder = ['Languages', 'Frameworks & Libraries', 'Tools & Platforms', 'AI/ML', 'Other'];
+  const categoryOrder = ['Languages', 'Frameworks & Libraries', 'Other'];
   
   const sortedCategorizedSkills = Object.entries(categorizedSkills).sort(([a], [b]) => {
       const indexA = categoryOrder.indexOf(a);
