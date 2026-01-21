@@ -10,6 +10,7 @@ const navItems = [
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
   { href: '#experience', label: 'Experience' },
+  { href: '#education', label: 'Education' },
 ];
 
 export default function Header() {
@@ -17,7 +18,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container relative flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="relative flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <a href="#" className="flex items-center space-x-2 z-10">
           <span className="font-bold text-lg">Arpit Joshi</span>
         </a>
