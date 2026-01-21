@@ -9,15 +9,17 @@ const Hero: FC = () => {
   const title = "Arpit Joshi";
   const subtitle = "Frontend Developer";
 
-  const container = {
+  // This container variant now accepts a delay for its children's animation.
+  const container = (delay: number = 0) => ({
     hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.06,
+        delayChildren: delay,
       },
     },
-  };
+  });
 
   const letterVariant = {
     hidden: { opacity: 0, y: 20 },
@@ -37,17 +39,18 @@ const Hero: FC = () => {
           opacity: 1,
           y: 0,
           transition: {
-              delay: (title.length + subtitle.length) * 0.06,
+              delay: 1.3, // Delay to start after text animation
               duration: 0.6,
               ease: "easeInOut"
           },
       },
   };
 
-  const AnimatedLetters = ({ text, className }: { text: string, className?: string }) => (
+  // This component animates each letter of the text.
+  const AnimatedLetters = ({ text, className, delay = 0 }: { text: string, className?: string, delay?: number }) => (
     <motion.span
       className={`whitespace-nowrap ${className}`}
-      variants={container}
+      variants={container(delay)}
       initial="hidden"
       animate="visible"
     >
@@ -67,7 +70,8 @@ const Hero: FC = () => {
             <AnimatedLetters text={title} />
           </span>
           <span className="block text-primary">
-            <AnimatedLetters text={subtitle} />
+            {/* A small delay is added for a lagging effect */}
+            <AnimatedLetters text={subtitle} delay={0.3} />
           </span>
         </h1>
 
