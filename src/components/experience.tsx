@@ -4,8 +4,15 @@ import type { FC } from 'react';
 import { Briefcase } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+interface Experience {
+  title: string;
+  company: string;
+  location: string;
+  dates: string;
+  description: string[];
+}
 interface ExperienceProps {
-  experiences: string[];
+  experiences: Experience[];
 }
 
 const Experience: FC<ExperienceProps> = ({ experiences }) => {
@@ -44,14 +51,7 @@ const Experience: FC<ExperienceProps> = ({ experiences }) => {
           whileInView="visible"
           viewport={{ once: false, amount: 0.1 }}
         >
-          {experiences.map((exp, index) => {
-            const lines = exp.split('\n');
-            const header = lines[0];
-            const descriptionPoints = lines.slice(1).map(l => l.replace(/^- /, ''));
-
-            const [title, company, location, dates] = header.split(' | ');
-
-            return (
+          {experiences.map((exp, index) => (
               <motion.div
                 key={index}
                 className="relative flex items-start gap-6"
@@ -61,27 +61,27 @@ const Experience: FC<ExperienceProps> = ({ experiences }) => {
                   <Briefcase className="h-6 w-6 text-primary" />
                 </div>
                 <div className="flex-1 pt-1.5">
-                  <h3 className="text-lg font-semibold text-foreground">{title || 'Job Title'}</h3>
+                  <h3 className="text-lg font-semibold text-foreground">{exp.title}</h3>
                   <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                    <p className="text-base text-muted-foreground">{company ? `${company.trim()}${location ? `, ${location.trim()}` : ''}` : 'Company'}</p>
-                    {dates && (
+                    <p className="text-base text-muted-foreground">{`${exp.company}${exp.location ? `, ${exp.location}` : ''}`}</p>
+                    {exp.dates && (
                       <>
                         <span className="text-muted-foreground">·</span>
-                        <p className="text-sm text-muted-foreground">{dates.trim()}</p>
+                        <p className="text-sm text-muted-foreground">{exp.dates}</p>
                       </>
                     )}
                   </div>
-                  {descriptionPoints.length > 0 && descriptionPoints[0].trim() !== '' && (
+                  {exp.description.length > 0 && (
                   <ul className="mt-4 space-y-2 text-foreground/80 list-disc list-inside">
-                    {descriptionPoints.map((point, i) => (
-                      <li key={i}>{point.trim()}</li>
+                    {exp.description.map((point, i) => (
+                      <li key={i}>{point}</li>
                     ))}
                   </ul>
                   )}
                 </div>
               </motion.div>
-            );
-          })}
+            )
+          )}
         </motion.div>
       </div>
     </motion.section>

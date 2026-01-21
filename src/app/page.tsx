@@ -1,4 +1,3 @@
-import { cvData } from "@/lib/cv-data";
 import { projectsData } from "@/lib/projects-data";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
@@ -8,58 +7,9 @@ import Projects from "@/components/projects";
 import Experience from "@/components/experience";
 import Education from "@/components/education";
 import Footer from "@/components/footer";
-
-type ParseCvOutput = {
-  education: string[];
-  workExperience: string[];
-  skills: string[];
-  otherDetails: string[];
-};
-
-const mockParsedCv: ParseCvOutput = {
-  education: [
-    'Master of Computer Application | Monad University  | 2021 - 2023',
-    'Bachelor of Computer Applications | Ludiana Group  | 2018 - 2021',
-  ],
-  workExperience: [
-
-
-`Software Developer | Master's Union. | Gurugram, IN | Feb 2023 - Present
-- Designed and developed a full-stack SaaS LMS with Admin and Student portals, supporting course management, student tracking, and role-based access, serving 10,000+ active users.
-- Built a scalable Next.js frontend using Server Actions and dynamic routing, and optimized the build pipeline with Webpack for efficient bundling and reduced asset sizes.
-- Improved security and performance by implementing encrypted client-side data handling, HTTP-only cookies, optimized data structures, and virtualization with event delegation for large lists.
-- Developed a responsive analytics dashboard using ApexCharts and Framer Motion with SCSS-based styled-components, enhancing UI consistency, performance, and maintainability.`,
-
-    `Associate Software Engineer | Master's Union. | Gurugram, IN | July 2022 - Feb 2023
-- Developed and maintained client-side applications using React, Redux, and TypeScript.
-- Built RESTful APIs with Node.js and connected to PostgreSQL databases.
-- Collaborated with UX/UI designers to create responsive and accessible user interfaces.
-- Improved application performance by 20% by optimizing API calls and implementing code-splitting.`
-
-
-  ],
-  skills: [
-    'JavaScript', 'TypeScript', 'Java', 'HTML', 'CSS/Sass',
-    'React', 'Next.js', 'Redux', 'Tailwind CSS', 'Apex Charts',"Material UI",
-    'Node.js', 'Express.js',
-    'PostgreSQL', 'MongoDB', 'Redis',
-    'Redux', 'Vercel',
-  
-  ],
-  otherDetails: [
-    "Frontend Developer with nearly 4 years of experience building high-performance, scalable, and user-centric web applications using React.js and Next.js. Strong expertise in modern frontend architecture, performance optimization, and responsive UI development, with working knowledge of backend development using Node.js. Proven experience delivering production-grade applications used by 10,000+ active users.",
-    "I'm a lifelong learner, always excited to pick up new technologies and tackle challenging problems. When I'm not coding, I enjoy exploring new hiking trails and contributing to open-source projects."
-  ]
-};
+import { SUMMARY, SKILLS, WORK_EXPERIENCE, EDUCATION } from "@/data/cv-data";
 
 export default async function Home() {
-  const parsedCv: ParseCvOutput = mockParsedCv;
-
-  const skillsWithProficiency = parsedCv.skills.map((skill) => ({
-    name: skill,
-    proficiency: Math.floor(Math.random() * 16) + 80, // 80-95%
-  }));
-
   const categorizedProjectsList = projectsData.map((project) => {
       return { ...project, categories: [], tags: project.tags.split('_') };
     }
@@ -72,11 +22,11 @@ export default async function Home() {
         <Hero />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-24 sm:space-y-32 md:space-y-40 my-24 sm:my-32">
-            <About aboutText={parsedCv.otherDetails.join("\n\n")} />
-            <SkillsChart skills={skillsWithProficiency} />
+            <About aboutText={SUMMARY.join("\n\n")} />
+            <SkillsChart skills={SKILLS} />
             <Projects projects={categorizedProjectsList} />
-            <Experience experiences={parsedCv.workExperience} />
-            <Education educations={parsedCv.education} />
+            <Experience experiences={WORK_EXPERIENCE} />
+            <Education educations={EDUCATION} />
           </div>
         </div>
       </main>

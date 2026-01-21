@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Download } from 'lucide-react';
+import { Eye } from 'lucide-react';
 import type { FC } from 'react';
 
 const Hero: FC = () => {
@@ -18,8 +18,8 @@ const Hero: FC = () => {
             <a href="#projects">View My Work</a>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <a href="/Arpit-Joshi-CV.pdf" download>
-              Download CV <Download className="ml-2 h-4 w-4" />
+            <a href="/cv" target="_blank" rel="noopener noreferrer">
+              View CV <Eye className="ml-2 h-4 w-4" />
             </a>
           </Button>
         </div>

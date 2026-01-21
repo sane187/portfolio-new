@@ -5,8 +5,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GraduationCap } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+interface Education {
+  degree: string;
+  institution: string;
+  dates: string;
+}
+
 interface EducationProps {
-  educations: string[];
+  educations: Education[];
 }
 
 const Education: FC<EducationProps> = ({ educations }) => {
@@ -47,7 +53,6 @@ const Education: FC<EducationProps> = ({ educations }) => {
         viewport={{ once: false, amount: 0.2 }}
       >
         {educations.map((edu, index) => {
-          const [degree, institution, dates] = edu.split(' | ');
           return (
             <motion.div key={index} variants={itemVariants}>
               <Card className="bg-card border-border/60 hover:border-primary/50 transition-colors duration-300">
@@ -56,10 +61,10 @@ const Education: FC<EducationProps> = ({ educations }) => {
                     <GraduationCap className="h-6 w-6 text-primary" />
                   </div>
                   <div className='w-full'>
-                    <CardTitle>{degree || 'Degree'}</CardTitle>
-                    <p className="text-sm text-muted-foreground">{institution || 'Institution'}</p>
+                    <CardTitle>{edu.degree}</CardTitle>
+                    <p className="text-sm text-muted-foreground">{edu.institution}</p>
                   </div>
-                  {dates && <div className="text-sm text-muted-foreground justify-self-end">{dates}</div>}
+                  {edu.dates && <div className="text-sm text-muted-foreground justify-self-end">{edu.dates}</div>}
                 </CardHeader>
               </Card>
             </motion.div>

@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 interface Skill {
   name: string;
   proficiency: number;
+  category: string;
 }
 
 interface SkillsChartProps {
@@ -15,24 +16,8 @@ interface SkillsChartProps {
 }
 
 const SkillsChart: FC<SkillsChartProps> = ({ skills }) => {
-
-  const getSkillCategory = (skillName: string): string => {
-    const categories: Record<string, string[]> = {
-      'Languages': ['JavaScript', 'TypeScript', 'Python', 'HTML', 'CSS/Sass'],
-      'Frameworks & Libraries': ['React', 'Next.js', 'Redux', 'Tailwind CSS', 'Chart.js', 'Node.js', 'Express.js', 'Flask'],
-      'Tools & Platforms': ['PostgreSQL', 'MongoDB', 'Firebase', 'Firebase Firestore', 'Google Cloud Platform (GCP)', 'Docker', 'Kubernetes', 'CI/CD', 'Vercel'],
-    };
-
-    for (const category in categories) {
-      if (categories[category].includes(skillName)) {
-        return category;
-      }
-    }
-    return 'Other';
-  };
-
   const categorizedSkills = skills.reduce((acc, skill) => {
-    const category = getSkillCategory(skill.name);
+    const category = skill.category;
     if (!acc[category]) {
       acc[category] = [];
     }
