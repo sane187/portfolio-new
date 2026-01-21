@@ -105,11 +105,16 @@ export default {
             transform: 'translateY(0)',
           },
         },
+        'progress-shimmer': {
+          '0%': { backgroundPosition: '200% center' },
+          '100%': { backgroundPosition: '-200% center' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'load-in-bounce': 'load-in-bounce 0.7s ease-out forwards',
+        'progress-shimmer': 'progress-shimmer 3s linear infinite',
       },
       backgroundSize: {
         'grid-white/[0.05]': '30px 30px',
