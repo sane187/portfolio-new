@@ -1,5 +1,8 @@
+'use client';
+
 import type { FC } from 'react';
 import ProjectCard from './project-card';
+import { motion } from 'framer-motion';
 
 interface Project {
   id: string;
@@ -16,7 +19,14 @@ interface ProjectsProps {
 
 const Projects: FC<ProjectsProps> = ({ projects }) => {
   return (
-    <section id="projects" className="max-w-6xl mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '1.3s' }}>
+    <motion.section
+      id="projects"
+      className="max-w-6xl mx-auto"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.1 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="max-w-xl mx-auto text-center">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-primary">
           My Projects
@@ -30,7 +40,7 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
           <ProjectCard key={project.id} {...project} />
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

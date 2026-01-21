@@ -1,4 +1,7 @@
+'use client';
+
 import type { FC } from 'react';
+import { motion } from 'framer-motion';
 
 interface AboutProps {
   aboutText: string;
@@ -6,7 +9,14 @@ interface AboutProps {
 
 const About: FC<AboutProps> = ({ aboutText }) => {
   return (
-    <section id="about" className="max-w-3xl mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
+    <motion.section
+      id="about"
+      className="max-w-3xl mx-auto"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.3 }}
+      transition={{ duration: 0.5 }}
+    >
       <h2 className="text-3xl font-bold tracking-tight text-center sm:text-4xl text-primary">
         About Me
       </h2>
@@ -18,7 +28,7 @@ const About: FC<AboutProps> = ({ aboutText }) => {
           <p key={index}>{paragraph}</p>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

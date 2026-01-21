@@ -1,6 +1,9 @@
+'use client';
+
 import type { FC } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GraduationCap } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface EducationProps {
   educations: string[];
@@ -8,7 +11,14 @@ interface EducationProps {
 
 const Education: FC<EducationProps> = ({ educations }) => {
   return (
-    <section id="education" className="max-w-4xl mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '1.7s' }}>
+    <motion.section
+      id="education"
+      className="max-w-4xl mx-auto"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 0.5 }}
+    >
       <h2 className="text-3xl font-bold tracking-tight text-center sm:text-4xl text-primary">
         Education
       </h2>
@@ -31,7 +41,7 @@ const Education: FC<EducationProps> = ({ educations }) => {
           );
         })}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

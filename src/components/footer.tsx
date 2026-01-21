@@ -1,9 +1,18 @@
+'use client';
+
 import { Github, Linkedin } from 'lucide-react';
 import type { FC } from 'react';
+import { motion } from 'framer-motion';
 
 const Footer: FC = () => {
   return (
-    <footer className="bg-card/50 border-t border-border/60 opacity-0 animate-fade-in-up" style={{ animationDelay: '1.9s' }}>
+    <motion.footer
+      className="bg-card/50 border-t border-border/60"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-center py-6 gap-4">
           <p className="text-sm text-muted-foreground">
@@ -21,7 +30,7 @@ const Footer: FC = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

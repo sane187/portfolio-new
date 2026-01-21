@@ -1,5 +1,8 @@
+'use client';
+
 import type { FC } from 'react';
 import { Briefcase } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface ExperienceProps {
   experiences: string[];
@@ -7,7 +10,14 @@ interface ExperienceProps {
 
 const Experience: FC<ExperienceProps> = ({ experiences }) => {
   return (
-    <section id="experience" className="max-w-4xl mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '1.5s' }}>
+    <motion.section
+      id="experience"
+      className="max-w-4xl mx-auto"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 0.5 }}
+    >
       <h2 className="text-3xl font-bold tracking-tight text-center sm:text-4xl text-primary">
         Work Experience
       </h2>
@@ -50,7 +60,7 @@ const Experience: FC<ExperienceProps> = ({ experiences }) => {
           })}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
