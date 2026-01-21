@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { Download } from 'lucide-react';
 
 const Hero: FC = () => {
   const containerVariants = {
@@ -12,6 +12,7 @@ const Hero: FC = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.3,
+        delayChildren: 0.2,
       },
     },
   };
@@ -60,12 +61,10 @@ const Hero: FC = () => {
           </Button>
           <Button size="lg" variant="outline" asChild>
             <a
-              href="/cv"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/api/download-cv"
             >
-              View CV
-              <ArrowRight className="ml-2 h-4 w-4" />
+              Download CV
+              <Download className="ml-2 h-4 w-4" />
             </a>
           </Button>
         </motion.div>
