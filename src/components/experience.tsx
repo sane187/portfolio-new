@@ -9,6 +9,20 @@ interface ExperienceProps {
 }
 
 const Experience: FC<ExperienceProps> = ({ experiences }) => {
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
     <motion.section
       id="experience"
@@ -23,7 +37,13 @@ const Experience: FC<ExperienceProps> = ({ experiences }) => {
       </h2>
       <div className="relative mt-12">
         <div className="absolute left-6 top-0 h-full w-0.5 bg-border -translate-x-1/2" aria-hidden="true"></div>
-        <div className="space-y-12">
+        <motion.div
+          className="space-y-12"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.1 }}
+        >
           {experiences.map((exp, index) => {
             const lines = exp.split('\n');
             const header = lines[0];
@@ -32,7 +52,11 @@ const Experience: FC<ExperienceProps> = ({ experiences }) => {
             const [title, company, location, dates] = header.split(' | ');
 
             return (
-              <div key={index} className="relative flex items-start gap-6">
+              <motion.div
+                key={index}
+                className="relative flex items-start gap-6"
+                variants={itemVariants}
+              >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-card border border-border/60 shadow-sm shrink-0">
                   <Briefcase className="h-6 w-6 text-primary" />
                 </div>
@@ -55,10 +79,10 @@ const Experience: FC<ExperienceProps> = ({ experiences }) => {
                   </ul>
                   )}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </motion.section>
   );

@@ -10,6 +10,23 @@ interface EducationProps {
 }
 
 const Education: FC<EducationProps> = ({ educations }) => {
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { x: -20, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+    },
+  };
+
   return (
     <motion.section
       id="education"
@@ -22,25 +39,33 @@ const Education: FC<EducationProps> = ({ educations }) => {
       <h2 className="text-3xl font-bold tracking-tight text-center sm:text-4xl text-primary">
         Education
       </h2>
-      <div className="mt-8 grid gap-8">
+      <motion.div
+        className="mt-8 grid gap-8"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+      >
         {educations.map((edu, index) => {
           const [degree, institution, dates] = edu.split(' | ');
           return (
-            <Card key={index} className="bg-card border-border/60 hover:border-primary/50 transition-colors duration-300">
-              <CardHeader className="grid grid-cols-[auto,1fr,auto] items-center gap-4">
-                <div className="bg-primary/10 p-3 rounded-full">
-                  <GraduationCap className="h-6 w-6 text-primary" />
-                </div>
-                <div className='w-full'>
-                  <CardTitle>{degree || 'Degree'}</CardTitle>
-                  <p className="text-sm text-muted-foreground">{institution || 'Institution'}</p>
-                </div>
-                {dates && <div className="text-sm text-muted-foreground justify-self-end">{dates}</div>}
-              </CardHeader>
-            </Card>
+            <motion.div key={index} variants={itemVariants}>
+              <Card className="bg-card border-border/60 hover:border-primary/50 transition-colors duration-300">
+                <CardHeader className="grid grid-cols-[auto,1fr,auto] items-center gap-4">
+                  <div className="bg-primary/10 p-3 rounded-full">
+                    <GraduationCap className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className='w-full'>
+                    <CardTitle>{degree || 'Degree'}</CardTitle>
+                    <p className="text-sm text-muted-foreground">{institution || 'Institution'}</p>
+                  </div>
+                  {dates && <div className="text-sm text-muted-foreground justify-self-end">{dates}</div>}
+                </CardHeader>
+              </Card>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </motion.section>
   );
 };

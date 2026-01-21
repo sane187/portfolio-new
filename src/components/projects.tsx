@@ -18,6 +18,26 @@ interface ProjectsProps {
 }
 
 const Projects: FC<ProjectsProps> = ({ projects }) => {
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <motion.section
       id="projects"
@@ -35,11 +55,19 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
           A selection of my work, showcasing my skills in web development and design.
         </p>
       </div>
-      <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <motion.div
+        className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.1 }}
+      >
         {projects.map((project) => (
-          <ProjectCard key={project.id} {...project} />
+          <motion.div key={project.id} variants={itemVariants}>
+            <ProjectCard {...project} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </motion.section>
   );
 };
