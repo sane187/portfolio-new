@@ -61,7 +61,7 @@ const Hero: FC = () => {
           </Button>
           <Button size="lg" variant="outline" asChild>
             <a
-              href="/Arpit_Joshi-CV.pdf"
+              href="/arpit-cv-2026.pdf"
               download
             >
               Download CV
