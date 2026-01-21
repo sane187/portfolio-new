@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
-import { Download } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const Hero: FC = () => {
   const name = "Arpit Joshi";
@@ -15,17 +15,6 @@ const Hero: FC = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.08,
-      },
-    },
-  };
-
-  const sentence2 = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: name.length * 0.08,
       },
     },
   };
@@ -73,7 +62,7 @@ const Hero: FC = () => {
           </motion.span>
           <motion.span
             className="block text-primary"
-            variants={sentence2}
+            variants={sentence}
             initial="hidden"
             animate="visible"
           >
@@ -98,9 +87,9 @@ const Hero: FC = () => {
               <a href="#projects">View My Work</a>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="/Arpit-Joshi-CV.pdf" download>
-                Download CV
-                <Download className="ml-2 h-4 w-4" />
+              <a href="/cv" target="_blank" rel="noopener noreferrer">
+                View CV
+                <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
           </div>
