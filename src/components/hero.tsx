@@ -6,49 +6,72 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const Hero: FC = () => {
+  const title = "Arpit Joshi";
+  const subtitle = "Frontend Developer";
+
   const container = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.06,
       },
     },
   };
 
-  const item = {
+  const letterVariant = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.25, 0.1, 0.25, 1], // easeOut
+        ease: 'easeOut',
+        duration: 0.4,
       },
     },
   };
+  
+  const descriptionAndButtons = {
+      hidden: { opacity: 0, y: 20 },
+      visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+              delay: (title.length + subtitle.length) * 0.06,
+              duration: 0.6,
+              ease: "easeInOut"
+          },
+      },
+  };
+
+  const AnimatedLetters = ({ text, className }: { text: string, className?: string }) => (
+    <motion.span
+      className={`whitespace-nowrap ${className}`}
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
+      {text.split("").map((char, index) => (
+        <motion.span key={index} variants={letterVariant} className="inline-block">
+          {char === ' ' ? '\u00A0' : char}
+        </motion.span>
+      ))}
+    </motion.span>
+  );
 
   return (
     <section className="relative h-[calc(100vh-56px)] flex items-center justify-center text-center">
-      <motion.div
-        className="relative z-10 px-4 sm:px-6 lg:px-8"
-        variants={container}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.h1
-          variants={item}
-          className="text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl"
-        >
+      <div className="relative z-10 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
           <span className="block">
-            Arpit Joshi
+            <AnimatedLetters text={title} />
           </span>
           <span className="block text-primary">
-            Frontend Developer
+            <AnimatedLetters text={subtitle} />
           </span>
-        </motion.h1>
+        </h1>
 
-        <motion.div variants={item}>
+        <motion.div initial="hidden" animate="visible" variants={descriptionAndButtons}>
           <p className="mt-4 max-w-md mx-auto text-lg text-muted-foreground sm:text-xl md:mt-5 md:max-w-3xl">
             Crafting modern, responsive, and intelligent web applications from concept to deployment.
           </p>
@@ -64,7 +87,7 @@ const Hero: FC = () => {
             </Button>
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };
