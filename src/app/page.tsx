@@ -42,7 +42,7 @@ const mockParsedCv: ParseCvOutput = {
     'JavaScript', 'TypeScript', 'Java', 'HTML', 'CSS/Sass',
     'React', 'Next.js', 'Redux', 'Tailwind CSS', 'Apex Charts',"Material UI",
     'Node.js', 'Express.js',
-    'PostgreSQL', 'MongoDB', 'Redis',
+    'PostgreSQL', 'MySql', 'Redis',
     'Redux', 'Vercel',
   
   ],

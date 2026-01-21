@@ -4,7 +4,7 @@ export const projectsData = [
     title: 'AI Course Maker – AI-Driven Course Builder',
     description: 'An AI-powered web app that enables educators to create structured courses in minutes by generating outlines, modules, and lesson content from user input.',
     imageId: 'p1',
-    link: 'https://github.com/arpitjoshi/agileflow',
+    link: 'https://course-ai-blue.vercel.app',
     tags :  "Grok-sdk_Next.Js_TS_Tailwind"
   },
   {
