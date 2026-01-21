@@ -1,7 +1,7 @@
 export const projectsData = [
   {
     id: '1',
-    title: 'AI Course Maker – AI-Powered Course Creation Platform',
+    title: 'AI Course Maker – AI-Driven Course Builder',
     description: 'An AI-powered web app that enables educators to create structured courses in minutes by generating outlines, modules, and lesson content from user input.',
     imageId: 'p1',
     link: 'https://github.com/arpitjoshi/agileflow',

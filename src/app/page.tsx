@@ -22,23 +22,28 @@ const mockParsedCv: ParseCvOutput = {
     'Bachelor of Computer Applications | Ludiana Group  | 2018 - 2021',
   ],
   workExperience: [
-    `Lead Software Engineer | Tech Innovators Inc. | Pune, IN | Jan 2021 - Present
+
+
+`Software Developer | Master's Union. | Gurugram, IN | Feb 2023 - Present
 - Led a team of 4 developers in building a SaaS platform for project management, resulting in a 30% increase in team productivity.
 - Architected and implemented a microservices-based backend using Node.js, Express, and Docker, deployed on Google Kubernetes Engine.
 - Integrated a GenAI-powered feature for automatic task categorization, reducing manual effort by 50%.
 - Mentored junior developers and conducted code reviews to maintain high code quality standards.`,
-    `Full-Stack Developer | Digital Solutions Co. | Mumbai, IN | Jun 2018 - Dec 2020
+
+    `Associate Software Engineer | Master's Union. | Gurugram, IN | July 2022 - Feb 2023
 - Developed and maintained client-side applications using React, Redux, and TypeScript.
 - Built RESTful APIs with Node.js and connected to PostgreSQL databases.
 - Collaborated with UX/UI designers to create responsive and accessible user interfaces.
 - Improved application performance by 20% by optimizing API calls and implementing code-splitting.`
+
+
   ],
   skills: [
-    'JavaScript', 'TypeScript', 'Python', 'HTML', 'CSS/Sass',
-    'React', 'Next.js', 'Redux', 'Tailwind CSS', 'Chart.js',
-    'Node.js', 'Express.js', 'Flask',
-    'PostgreSQL', 'MongoDB', 'Firebase Firestore',
-    'Google Cloud Platform (GCP)', 'Firebase', 'Docker', 'Kubernetes', 'CI/CD', 'Vercel',
+    'JavaScript', 'TypeScript', 'Java', 'HTML', 'CSS/Sass',
+    'React', 'Next.js', 'Redux', 'Tailwind CSS', 'Apex Charts',"Material UI",
+    'Node.js', 'Express.js',
+    'PostgreSQL', 'MongoDB', 'Redis',
+    'Redux', 'Vercel',
   
   ],
   otherDetails: [
