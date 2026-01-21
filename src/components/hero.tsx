@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowDown } from 'lucide-react';
+import { Download } from 'lucide-react';
 import type { FC } from 'react';
 
 const Hero: FC = () => {
@@ -13,13 +13,13 @@ const Hero: FC = () => {
         <p className="mt-4 max-w-md mx-auto text-lg text-muted-foreground sm:text-xl md:mt-5 md:max-w-3xl">
           Crafting modern, responsive, and intelligent web applications from concept to deployment.
         </p>
-        <div className="mt-8 flex justify-center gap-4">
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button size="lg" asChild>
             <a href="#projects">View My Work</a>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <a href="#about">
-              More About Me <ArrowDown className="ml-2 h-4 w-4" />
+            <a href="/Arpit-Joshi-CV.pdf" download>
+              Download CV <Download className="ml-2 h-4 w-4" />
             </a>
           </Button>
         </div>
