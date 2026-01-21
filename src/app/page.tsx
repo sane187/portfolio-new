@@ -25,10 +25,10 @@ const mockParsedCv: ParseCvOutput = {
 
 
 `Software Developer | Master's Union. | Gurugram, IN | Feb 2023 - Present
-- Led a team of 4 developers in building a SaaS platform for project management, resulting in a 30% increase in team productivity.
-- Architected and implemented a microservices-based backend using Node.js, Express, and Docker, deployed on Google Kubernetes Engine.
-- Integrated a GenAI-powered feature for automatic task categorization, reducing manual effort by 50%.
-- Mentored junior developers and conducted code reviews to maintain high code quality standards.`,
+- Designed and developed a full-stack SaaS LMS with Admin and Student portals, supporting course management, student tracking, and role-based access, serving 10,000+ active users.
+- Built a scalable Next.js frontend using Server Actions and dynamic routing, and optimized the build pipeline with Webpack for efficient bundling and reduced asset sizes.
+- Improved security and performance by implementing encrypted client-side data handling, HTTP-only cookies, optimized data structures, and virtualization with event delegation for large lists.
+- Developed a responsive analytics dashboard using ApexCharts and Framer Motion with SCSS-based styled-components, enhancing UI consistency, performance, and maintainability.`,
 
     `Associate Software Engineer | Master's Union. | Gurugram, IN | July 2022 - Feb 2023
 - Developed and maintained client-side applications using React, Redux, and TypeScript.
